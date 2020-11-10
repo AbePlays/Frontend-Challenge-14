@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="flex justify-between py-6 sm:px-10 px-4 shadow items-center">
+    <header className="flex justify-between py-6 sm:px-10 px-4 shadow items-center bg-white">
       <h1 className="font-bold text-lg">Where in the world?</h1>
       <div className="flex items-center">
         <svg
