@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 function Body() {
+  const [countries, setCountries] = useState([]);
+
+  const getData = async () => {
+    const res = await fetch("https://restcountries.eu/rest/v2/all");
+    const data = await res.json();
+    console.log(data);
+    setCountries(data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4">
@@ -43,6 +56,18 @@ function Body() {
             />
           </svg>
         </div>
+      </div>
+      <div>
+        {countries.map((country) => (
+          <Card
+            imgUri={country.flag}
+            capital={country.capital}
+            name={country.name}
+            population={country.population}
+            region={country.region}
+            key={country.numericCode}
+          />
+        ))}
       </div>
     </>
   );
