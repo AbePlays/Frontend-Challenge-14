@@ -1,2 +1,0 @@
-(this["webpackJsonprest-countries-api"]=this["webpackJsonprest-countries-api"]||[]).push([[0],{10:function(e,t,n){"use strict";n.r(t);var c=n(0),r=n(1),s=n.n(r),i=n(3),o=n.n(i);var a=function(){return Object(c.jsx)("div",{children:Object(c.jsx)("h1",{className:"bg-blue-300 text-6xl text-center",children:"Hello World!"})})};n(9);o.a.render(Object(c.jsx)(s.a.StrictMode,{children:Object(c.jsx)(a,{})}),document.getElementById("root"))},9:function(e,t,n){}},[[10,1,2]]]);
-//# sourceMappingURL=main.c26d1df9.chunk.js.map
