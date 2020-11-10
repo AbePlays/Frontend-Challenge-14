@@ -57,7 +57,7 @@ function Body() {
           </svg>
         </div>
       </div>
-      <div>
+      <div className="sm:mt-8 mt-4 sm:mx-8 mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {countries.map((country) => (
           <Card
             imgUri={country.flag}
