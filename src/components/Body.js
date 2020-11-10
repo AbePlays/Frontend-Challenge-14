@@ -2,8 +2,8 @@ import React from "react";
 
 function Body() {
   return (
-    <div>
-      <div className="mx-8 mt-8 min-h-screen relative">
+    <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4">
+      <div className="h-12">
         <svg
           className="h-6 w-6 text-gray-600 absolute mt-3 ml-6"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,8 +21,25 @@ function Body() {
         <input
           type="text"
           placeholder="Search for a country..."
-          className="shadow px-16 py-3 rounded text-gray-600"
+          className="shadow px-16 py-3 w-full rounded text-gray-600"
         />
+      </div>
+      <div className="flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 mt-8 sm:mt-0 w-48">
+        <p className="font-light">Filter by Region</p>
+        <svg
+          className="h-4 ml-8"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
       </div>
     </div>
   );
