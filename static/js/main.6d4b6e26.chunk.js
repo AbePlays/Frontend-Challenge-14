@@ -1,2 +1,0 @@
-(this["webpackJsonprest-countries-api"]=this["webpackJsonprest-countries-api"]||[]).push([[0],{9:function(e,t,r){"use strict";r.r(t);var c=r(0),n=r(1),s=r.n(n),i=r(3);var o=function(){return Object(c.jsx)("div",{className:"App",children:Object(c.jsx)("h1",{children:"Hello World!"})})};r.n(i).a.render(Object(c.jsx)(s.a.StrictMode,{children:Object(c.jsx)(o,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.6d4b6e26.chunk.js.map
