@@ -3,6 +3,7 @@ import Card from "./Card";
 
 function Body() {
   const [countries, setCountries] = useState([]);
+  const [query, setQuery] = useState("");
 
   const getData = async () => {
     const res = await fetch("https://restcountries.eu/rest/v2/all");
@@ -34,6 +35,7 @@ function Body() {
             />
           </svg>
           <input
+            onChange={(e) => setQuery(e.target.value)}
             type="text"
             placeholder="Search for a country..."
             className="shadow px-16 py-3 w-full rounded text-gray-600"
@@ -57,17 +59,30 @@ function Body() {
           </svg>
         </div>
       </div>
-      <div className="sm:mt-8 mt-4 sm:mx-8 mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
-        {countries.map((country) => (
-          <Card
-            imgUri={country.flag}
-            capital={country.capital}
-            name={country.name}
-            population={country.population}
-            region={country.region}
-            key={country.numericCode}
-          />
-        ))}
+      <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
+        {countries.map((country) =>
+          query.length === 0 ? (
+            <Card
+              imgUri={country.flag}
+              capital={country.capital}
+              name={country.name}
+              population={country.population}
+              region={country.region}
+              key={country.numericCode}
+            />
+          ) : (
+            country.name.includes(query) && (
+              <Card
+                imgUri={country.flag}
+                capital={country.capital}
+                name={country.name}
+                population={country.population}
+                region={country.region}
+                key={country.numericCode}
+              />
+            )
+          )
+        )}
       </div>
     </>
   );
