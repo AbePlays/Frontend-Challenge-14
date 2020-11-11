@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="flex justify-between py-6 sm:px-10 px-4 shadow items-center bg-white">
       <h1 className="font-bold text-lg">Where in the world?</h1>
-      <div className="flex items-center">
+      <div className="flex items-center cursor-pointer">
         <svg
           className="w-6"
           xmlns="http://www.w3.org/2000/svg"

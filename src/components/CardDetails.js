@@ -1,9 +1,11 @@
 import React from "react";
 
-function CardDetails() {
+function CardDetails(country) {
+  const langs = ["Hindi", "English", "Korean"];
+
   return (
     <div className="bg-gray min-h-screen sm:px-10 px-4">
-      <div className="flex items-center justify-center py-1 my-10 font-light bg-white w-32 rounded shadow-lg">
+      <div className="flex items-center justify-center py-1 my-10 font-light bg-gray-100 w-32 rounded shadow-lg">
         <svg
           className="h-8"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,10 +22,10 @@ function CardDetails() {
         </svg>
         <p className="ml-4">Back</p>
       </div>
-      <div className="grid lg:grid-cols-2 gap-32">
+      <div className="grid sm:grid-cols-2 gap-x-8 lg:gap-x-32 gap-y-8 text-gray-800">
         <div className="h-full w-full">
           <img
-            className="h-full w-full"
+            className="h-full w-full object-cover"
             src="https://restcountries.eu/data/afg.svg"
             alt="flag"
           />
@@ -60,6 +62,18 @@ function CardDetails() {
                 <span className="font-semibold">Languages: </span>Dutch, French,
                 German
               </p>
+            </div>
+          </div>
+          <div className="my-8">
+            <p className="inline font-semibold">Border Countries:</p>
+            <div className="flex gap-2 flex-wrap mt-2">
+              {langs.map((lang) => {
+                return (
+                  <span className="px-6 py-1 bg-gray-100 rounded shadow font-light text-sm">
+                    {lang}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
