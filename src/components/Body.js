@@ -4,16 +4,25 @@ import Card from "./Card";
 function Body() {
   const [countries, setCountries] = useState([]);
   const [query, setQuery] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
 
-  const getData = async () => {
+  const getAllData = async () => {
     const res = await fetch("https://restcountries.eu/rest/v2/all");
     const data = await res.json();
-    console.log(data);
     setCountries(data);
   };
 
+  const getRegionData = async (region) => {
+    const res = await fetch(
+      `https://restcountries.eu/rest/v2/region/${region}`
+    );
+    const data = await res.json();
+    setCountries(data);
+    setShowMenu(false);
+  };
+
   useEffect(() => {
-    getData();
+    getAllData();
   }, []);
 
   return (
@@ -44,7 +53,8 @@ function Body() {
         <div className="relative flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 mt-8 sm:mt-0 w-48">
           <p className="font-light">Filter by Region</p>
           <svg
-            className="h-4 ml-8"
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="h-4 ml-8 cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -57,13 +67,40 @@ function Body() {
               d="M19 9l-7 7-7-7"
             />
           </svg>
-          <div className="absolute left-0 top-0 mt-16 px-6 py-4 bg-white w-48 shadow-lg rounded-lg text-sm">
-            <p className="my-2 cursor-pointer">Africa</p>
-            <p className="my-2 cursor-pointer">America</p>
-            <p className="my-2 cursor-pointer">Asia</p>
-            <p className="my-2 cursor-pointer">Europe</p>
-            <p className="my-2 cursor-pointer">Oceania</p>
-          </div>
+          {showMenu && (
+            <div className="absolute left-0 top-0 mt-16 px-6 py-4 bg-white w-48 shadow-lg rounded-lg text-sm">
+              <p
+                onClick={() => getRegionData("africa")}
+                className="my-2 cursor-pointer"
+              >
+                Africa
+              </p>
+              <p
+                onClick={() => getRegionData("america")}
+                className="my-2 cursor-pointer"
+              >
+                America
+              </p>
+              <p
+                onClick={() => getRegionData("asia")}
+                className="my-2 cursor-pointer"
+              >
+                Asia
+              </p>
+              <p
+                onClick={() => getRegionData("europe")}
+                className="my-2 cursor-pointer"
+              >
+                Europe
+              </p>
+              <p
+                onClick={() => getRegionData("oceania")}
+                className="my-2 cursor-pointer"
+              >
+                Oceania
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
