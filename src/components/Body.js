@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import CardDetails from "./CardDetails";
 
 function Body() {
   const [countries, setCountries] = useState([]);
@@ -27,7 +28,8 @@ function Body() {
 
   return (
     <>
-      <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4">
+      <CardDetails />
+      {/* <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4">
         <div className="h-12">
           <svg
             className="h-6 w-6 text-gray-600 absolute mt-3 ml-6"
@@ -127,7 +129,7 @@ function Body() {
             )
           )
         )}
-      </div>
+      </div> */}
     </>
   );
 }
