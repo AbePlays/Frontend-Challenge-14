@@ -41,7 +41,7 @@ function Body() {
             className="shadow px-16 py-3 w-full rounded text-gray-600"
           />
         </div>
-        <div className="flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 mt-8 sm:mt-0 w-48">
+        <div className="relative flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 mt-8 sm:mt-0 w-48">
           <p className="font-light">Filter by Region</p>
           <svg
             className="h-4 ml-8"
@@ -57,6 +57,13 @@ function Body() {
               d="M19 9l-7 7-7-7"
             />
           </svg>
+          <div className="absolute left-0 top-0 mt-16 px-6 py-4 bg-white w-48 shadow-lg rounded-lg text-sm">
+            <p className="my-2 cursor-pointer">Africa</p>
+            <p className="my-2 cursor-pointer">America</p>
+            <p className="my-2 cursor-pointer">Asia</p>
+            <p className="my-2 cursor-pointer">Europe</p>
+            <p className="my-2 cursor-pointer">Oceania</p>
+          </div>
         </div>
       </div>
       <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
