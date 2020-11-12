@@ -1,9 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function CardDetails(props) {
   const history = useHistory();
   const country = props.location.state.country;
+  const isDark = useSelector((state) => state.darkMode);
 
   const getString = (arr) => {
     var array = [];
@@ -16,7 +18,9 @@ function CardDetails(props) {
   return (
     <div className="sm:px-10 px-4">
       <div
-        className="flex items-center justify-center py-1 my-10 font-light w-32 rounded shadow border cursor-pointer"
+        className={`flex items-center justify-center py-1 my-10 font-light w-32 rounded shadow  cursor-pointer ${
+          isDark ? "bg-gray-800 text-white" : "bg-white border text-gray-900"
+        }`}
         onClick={() => history.replace("/")}
       >
         <svg
@@ -43,7 +47,9 @@ function CardDetails(props) {
             alt="flag"
           />
         </div>
-        <div className="self-center">
+        <div
+          className={`self-center ${isDark ? "text-white" : "text-gray-900"}`}
+        >
           <h1 className="font-bold text-3xl">{country.name}</h1>
           <div className="grid md:grid-cols-2 gap-8 mt-8">
             <div>
@@ -88,7 +94,13 @@ function CardDetails(props) {
             <div className="flex gap-2 flex-wrap mt-2">
               {country.borders.map((name) => {
                 return (
-                  <span className="px-6 py-1 border rounded shadow font-light text-sm">
+                  <span
+                    className={`px-6 py-1 rounded shadow font-light text-sm ${
+                      isDark
+                        ? "bg-gray-800 text-white"
+                        : "bg-white border text-gray-900"
+                    }`}
+                  >
                     {name}
                   </span>
                 );

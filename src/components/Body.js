@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 
 function Body() {
+  const isDark = useSelector((state) => state.darkMode);
   const [countries, setCountries] = useState([]);
   const [query, setQuery] = useState("");
   const [showMenu, setShowMenu] = useState(false);
@@ -29,9 +31,11 @@ function Body() {
   return (
     <>
       <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4 text-sm">
-        <div className="h-12 bg-white">
+        <div className={`h-12 ${isDark ? "bg-gray-800" : "bg-white"}`}>
           <svg
-            className="h-6 w-6 text-gray-600 absolute mt-3 ml-6"
+            className={`h-6 w-6 absolute mt-3 ml-6 ${
+              !isDark ? "text-gray-800" : "text-white"
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -48,10 +52,16 @@ function Body() {
             onChange={(e) => setQuery(e.target.value)}
             type="text"
             placeholder="Search for a country..."
-            className="shadow px-16 py-3 w-full rounded text-gray-600 placeholder-current"
+            className={`shadow px-16 py-3 w-full rounded placeholder-current ${
+              isDark ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+            }`}
           />
         </div>
-        <div className="relative flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 my-8 sm:mb-0 sm:mt-0 w-48">
+        <div
+          className={`relative flex items-center px-4 shadow rounded h-12 my-8 sm:mb-0 sm:mt-0 w-48 ${
+            isDark ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+          }`}
+        >
           <p className="font-light">Filter by Region</p>
           <svg
             onClick={() => setShowMenu((prev) => !prev)}
@@ -69,7 +79,13 @@ function Body() {
             />
           </svg>
           {showMenu && (
-            <div className="absolute left-0 top-0 mt-16 px-6 py-2 bg-white w-48 shadow-lg rounded text-sm border">
+            <div
+              className={`absolute left-0 top-0 mt-16 px-6 py-2 w-48 shadow-lg rounded text-sm ${
+                isDark
+                  ? "bg-gray-800 text-white"
+                  : "bg-white text-gray-900 border"
+              }`}
+            >
               <p
                 onClick={() => getRegionData("africa")}
                 className="my-2 cursor-pointer"
