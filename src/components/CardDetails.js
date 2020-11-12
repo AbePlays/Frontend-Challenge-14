@@ -14,9 +14,9 @@ function CardDetails(props) {
   };
 
   return (
-    <div className="bg-gray min-h-screen sm:px-10 px-4">
+    <div className="sm:px-10 px-4">
       <div
-        className="flex items-center justify-center py-1 my-10 font-light bg-gray-100 w-32 rounded shadow-lg cursor-pointer"
+        className="flex items-center justify-center py-1 my-10 font-light w-32 rounded shadow border cursor-pointer"
         onClick={() => history.replace("/")}
       >
         <svg
@@ -88,7 +88,7 @@ function CardDetails(props) {
             <div className="flex gap-2 flex-wrap mt-2">
               {country.borders.map((name) => {
                 return (
-                  <span className="px-6 py-1 bg-gray-100 rounded shadow font-light text-sm">
+                  <span className="px-6 py-1 border rounded shadow font-light text-sm">
                     {name}
                   </span>
                 );

@@ -28,8 +28,8 @@ function Body() {
 
   return (
     <>
-      <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4">
-        <div className="h-12">
+      <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4 text-sm">
+        <div className="h-12 bg-white">
           <svg
             className="h-6 w-6 text-gray-600 absolute mt-3 ml-6"
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function Body() {
             onChange={(e) => setQuery(e.target.value)}
             type="text"
             placeholder="Search for a country..."
-            className="shadow px-16 py-3 w-full rounded text-gray-600"
+            className="shadow px-16 py-3 w-full rounded text-gray-600 placeholder-current"
           />
         </div>
         <div className="relative flex items-center bg-white px-4 shadow rounded text-gray-600 h-12 my-8 sm:mb-0 sm:mt-0 w-48">
@@ -69,7 +69,7 @@ function Body() {
             />
           </svg>
           {showMenu && (
-            <div className="absolute left-0 top-0 mt-16 px-6 py-4 bg-white w-48 shadow-lg rounded-lg text-sm">
+            <div className="absolute left-0 top-0 mt-16 px-6 py-2 bg-white w-48 shadow-lg rounded text-sm border">
               <p
                 onClick={() => getRegionData("africa")}
                 className="my-2 cursor-pointer"

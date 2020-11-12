@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ imgUri, name, population, region, capital }) {
   return (
-    <div className="shadow-lg rounded-md bg-white overflow-hidden">
+    <div className="shadow rounded-md bg-white overflow-hidden">
       <div className="h-56">
         <img className="h-full w-full object-cover" src={imgUri} alt="Flag" />
       </div>

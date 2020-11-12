@@ -6,7 +6,10 @@ import CardDetails from "./components/CardDetails";
 function App() {
   return (
     <Router>
-      <div className="">
+      <div
+        className="min-h-screen"
+        style={{ backgroundColor: "hsl(0, 0, 98%)" }}
+      >
         <Header />
         <Switch>
           <Route path="/" exact component={Body} />
