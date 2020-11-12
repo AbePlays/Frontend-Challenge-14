@@ -1,9 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function CardDetails(country) {
+function CardDetails(props) {
   const history = useHistory();
-  const langs = ["Hindi", "English", "Korean"];
+  const country = props.location.state.country;
+
+  const getString = (arr) => {
+    var array = [];
+    arr.forEach((item) => {
+      array.push(item.name);
+    });
+    return array.join(", ");
+  };
 
   return (
     <div className="bg-gray min-h-screen sm:px-10 px-4">
@@ -31,51 +39,57 @@ function CardDetails(country) {
         <div className="h-full w-full">
           <img
             className="h-full w-full object-cover"
-            src="https://restcountries.eu/data/afg.svg"
+            src={country.flag}
             alt="flag"
           />
         </div>
         <div className="self-center">
-          <h1 className="font-bold text-3xl">Belgium</h1>
+          <h1 className="font-bold text-3xl">{country.name}</h1>
           <div className="grid md:grid-cols-2 gap-8 mt-8">
             <div>
               <p className="font-light my-1">
-                <span className="font-semibold">Native Name: </span>Belgie
+                <span className="font-semibold">Native Name: </span>
+                {country.nativeName}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Population: </span>123456789
+                <span className="font-semibold">Population: </span>
+                {country.population}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Region: </span>Europe
+                <span className="font-semibold">Region: </span>
+                {country.region}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Sub Region: </span>Western
-                Europe
+                <span className="font-semibold">Sub Region: </span>
+                {country.subregion}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Capital: </span>Brussels
+                <span className="font-semibold">Capital: </span>
+                {country.capital}
               </p>
             </div>
             <div>
               <p className="font-light my-1">
-                <span className="font-semibold">Top Level Domain: </span>.be
+                <span className="font-semibold">Top Level Domain: </span>
+                {country.topLevelDomain[0]}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Currencies: </span>Euro
+                <span className="font-semibold">Currencies: </span>
+                {getString(country.currencies)}
               </p>
               <p className="font-light my-1">
-                <span className="font-semibold">Languages: </span>Dutch, French,
-                German
+                <span className="font-semibold">Languages: </span>
+                {getString(country.languages)}
               </p>
             </div>
           </div>
           <div className="my-8">
             <p className="inline font-semibold">Border Countries:</p>
             <div className="flex gap-2 flex-wrap mt-2">
-              {langs.map((lang) => {
+              {country.borders.map((name) => {
                 return (
                   <span className="px-6 py-1 bg-gray-100 rounded shadow font-light text-sm">
-                    {lang}
+                    {name}
                   </span>
                 );
               })}

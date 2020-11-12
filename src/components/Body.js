@@ -107,7 +107,14 @@ function Body() {
       <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {countries.map((country) =>
           query.length === 0 ? (
-            <Link to="/details">
+            <Link
+              to={{
+                pathname: "/details",
+                state: {
+                  country: country,
+                },
+              }}
+            >
               <Card
                 imgUri={country.flag}
                 capital={country.capital}
@@ -119,7 +126,14 @@ function Body() {
             </Link>
           ) : (
             country.name.includes(query) && (
-              <Link to="/details">
+              <Link
+                to={{
+                  pathname: "/details",
+                  state: {
+                    country: country,
+                  },
+                }}
+              >
                 <Card
                   imgUri={country.flag}
                   capital={country.capital}
