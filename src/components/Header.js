@@ -1,10 +1,22 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggle } from "../actions/index";
 
 function Header() {
+  const isDark = useSelector((state) => state.darkMode);
+  const dipatch = useDispatch();
+
   return (
-    <header className="flex justify-between py-6 sm:px-10 px-4 shadow items-center bg-white">
+    <header
+      className={`flex justify-between py-6 sm:px-10 px-4 shadow items-center  ${
+        isDark ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+      }`}
+    >
       <h1 className="font-bold text-lg">Where in the world?</h1>
-      <div className="flex items-center cursor-pointer">
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => dipatch(toggle())}
+      >
         <svg
           className="w-6"
           xmlns="http://www.w3.org/2000/svg"
