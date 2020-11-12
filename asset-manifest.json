@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Frontend-Challenge-14/static/css/main.cf60998a.chunk.css",
-    "main.js": "/Frontend-Challenge-14/static/js/main.ef236383.chunk.js",
-    "main.js.map": "/Frontend-Challenge-14/static/js/main.ef236383.chunk.js.map",
+    "main.css": "/Frontend-Challenge-14/static/css/main.fbd7eb24.chunk.css",
+    "main.js": "/Frontend-Challenge-14/static/js/main.0de9198e.chunk.js",
+    "main.js.map": "/Frontend-Challenge-14/static/js/main.0de9198e.chunk.js.map",
     "runtime-main.js": "/Frontend-Challenge-14/static/js/runtime-main.03226b45.js",
     "runtime-main.js.map": "/Frontend-Challenge-14/static/js/runtime-main.03226b45.js.map",
-    "static/js/2.0247c317.chunk.js": "/Frontend-Challenge-14/static/js/2.0247c317.chunk.js",
-    "static/js/2.0247c317.chunk.js.map": "/Frontend-Challenge-14/static/js/2.0247c317.chunk.js.map",
+    "static/js/2.84ed4537.chunk.js": "/Frontend-Challenge-14/static/js/2.84ed4537.chunk.js",
+    "static/js/2.84ed4537.chunk.js.map": "/Frontend-Challenge-14/static/js/2.84ed4537.chunk.js.map",
     "index.html": "/Frontend-Challenge-14/index.html",
-    "static/css/main.cf60998a.chunk.css.map": "/Frontend-Challenge-14/static/css/main.cf60998a.chunk.css.map",
-    "static/js/2.0247c317.chunk.js.LICENSE.txt": "/Frontend-Challenge-14/static/js/2.0247c317.chunk.js.LICENSE.txt"
+    "static/css/main.fbd7eb24.chunk.css.map": "/Frontend-Challenge-14/static/css/main.fbd7eb24.chunk.css.map",
+    "static/js/2.84ed4537.chunk.js.LICENSE.txt": "/Frontend-Challenge-14/static/js/2.84ed4537.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.03226b45.js",
-    "static/js/2.0247c317.chunk.js",
-    "static/css/main.cf60998a.chunk.css",
-    "static/js/main.ef236383.chunk.js"
+    "static/js/2.84ed4537.chunk.js",
+    "static/css/main.fbd7eb24.chunk.css",
+    "static/js/main.0de9198e.chunk.js"
   ]
 }
