@@ -1,11 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function CardDetails(country) {
+  const history = useHistory();
   const langs = ["Hindi", "English", "Korean"];
 
   return (
     <div className="bg-gray min-h-screen sm:px-10 px-4">
-      <div className="flex items-center justify-center py-1 my-10 font-light bg-gray-100 w-32 rounded shadow-lg">
+      <div
+        className="flex items-center justify-center py-1 my-10 font-light bg-gray-100 w-32 rounded shadow-lg cursor-pointer"
+        onClick={() => history.replace("/")}
+      >
         <svg
           className="h-8"
           xmlns="http://www.w3.org/2000/svg"

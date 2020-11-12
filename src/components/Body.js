@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 
 function Body() {
@@ -106,16 +107,7 @@ function Body() {
       <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {countries.map((country) =>
           query.length === 0 ? (
-            <Card
-              imgUri={country.flag}
-              capital={country.capital}
-              name={country.name}
-              population={country.population}
-              region={country.region}
-              key={country.numericCode}
-            />
-          ) : (
-            country.name.includes(query) && (
+            <Link to="/details">
               <Card
                 imgUri={country.flag}
                 capital={country.capital}
@@ -124,6 +116,19 @@ function Body() {
                 region={country.region}
                 key={country.numericCode}
               />
+            </Link>
+          ) : (
+            country.name.includes(query) && (
+              <Link to="/details">
+                <Card
+                  imgUri={country.flag}
+                  capital={country.capital}
+                  name={country.name}
+                  population={country.population}
+                  region={country.region}
+                  key={country.numericCode}
+                />
+              </Link>
             )
           )
         )}

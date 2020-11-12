@@ -1,12 +1,19 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import CardDetails from "./components/CardDetails";
 
 function App() {
   return (
-    <div className="bg-gray-200">
-      <Header />
-      <Body />
-    </div>
+    <Router>
+      <div className="">
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Body} />
+          <Route path="/details" component={CardDetails} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
