@@ -21,7 +21,7 @@ function CardDetails(props) {
         className={`flex items-center justify-center py-1 my-10 font-light w-32 rounded shadow  cursor-pointer ${
           isDark ? "bg-gray-800 text-white" : "bg-white border text-gray-900"
         }`}
-        onClick={() => history.replace("/")}
+        onClick={() => history.replace("/Frontend-Challenge-14")}
       >
         <svg
           className="h-8"

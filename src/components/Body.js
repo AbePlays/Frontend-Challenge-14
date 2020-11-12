@@ -2,26 +2,32 @@ import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import "./spinner.css";
 
 function Body() {
   const isDark = useSelector((state) => state.darkMode);
   const [countries, setCountries] = useState([]);
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
   const getAllData = async () => {
+    setLoading(true);
     const res = await fetch("https://restcountries.eu/rest/v2/all");
     const data = await res.json();
     setCountries(data);
+    setLoading(false);
   };
 
   const getRegionData = async (region) => {
+    setLoading(true);
     const res = await fetch(
       `https://restcountries.eu/rest/v2/region/${region}`
     );
     const data = await res.json();
     setCountries(data);
     setShowMenu(false);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -120,13 +126,18 @@ function Body() {
           )}
         </div>
       </div>
+      {loading && (
+        <div className="flex justify-center items-center my-40">
+          <div class="lds-dual-ring"></div>
+        </div>
+      )}
       <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {countries.map((country) =>
           query.length === 0 ? (
             <Link
               key={country.numericCode}
               to={{
-                pathname: "/details",
+                pathname: "/Frontend-Challenge-14/details",
                 state: {
                   country: country,
                 },
@@ -145,7 +156,7 @@ function Body() {
               <Link
                 key={country.numericCode}
                 to={{
-                  pathname: "/details",
+                  pathname: "/Frontend-Challenge-14/details",
                   state: {
                     country: country,
                   },
