@@ -55,6 +55,7 @@ function Body() {
             />
           </svg>
           <input
+            title="Search"
             onChange={(e) => setQuery(e.target.value)}
             type="text"
             placeholder="Search for a country..."
