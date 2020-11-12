@@ -108,6 +108,7 @@ function Body() {
         {countries.map((country) =>
           query.length === 0 ? (
             <Link
+              key={country.numericCode}
               to={{
                 pathname: "/details",
                 state: {
@@ -121,12 +122,12 @@ function Body() {
                 name={country.name}
                 population={country.population}
                 region={country.region}
-                key={country.numericCode}
               />
             </Link>
           ) : (
             country.name.includes(query) && (
               <Link
+                key={country.numericCode}
                 to={{
                   pathname: "/details",
                   state: {
@@ -140,7 +141,6 @@ function Body() {
                   name={country.name}
                   population={country.population}
                   region={country.region}
-                  key={country.numericCode}
                 />
               </Link>
             )
