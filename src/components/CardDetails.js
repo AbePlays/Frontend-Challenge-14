@@ -1,6 +1,25 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+
+const containerVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  exit: {
+    x: "100vw",
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 function CardDetails(props) {
   const history = useHistory();
@@ -16,7 +35,13 @@ function CardDetails(props) {
   };
 
   return (
-    <div className="sm:px-10 px-4">
+    <motion.div
+      className="sm:px-10 px-4"
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div
         className={`flex items-center justify-center py-1 my-10 font-light w-32 rounded shadow  cursor-pointer ${
           isDark ? "bg-gray-800 text-white" : "bg-white border text-gray-900"
@@ -109,7 +134,7 @@ function CardDetails(props) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,8 +1,45 @@
 import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Card from "./Card";
 import "./spinner.css";
+
+const topContainer = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+const containerVariant = {
+  hidden: {
+    x: "20vw",
+  },
+  visible: {
+    x: 0,
+    transitions: {
+      duration: 2,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 function Body() {
   const isDark = useSelector((state) => state.darkMode);
@@ -36,7 +73,13 @@ function Body() {
 
   return (
     <>
-      <div className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4 text-sm">
+      <motion.div
+        className="sm:flex justify-between sm:mx-8 mx-4 sm:mt-8 mt-4 text-sm"
+        variants={topContainer}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         <div className={`h-12 ${isDark ? "bg-gray-800" : "bg-white"}`}>
           <svg
             className={`h-6 w-6 absolute mt-3 ml-6 ${
@@ -126,34 +169,22 @@ function Body() {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
       {loading && (
         <div className="flex justify-center items-center my-40">
           <div class="lds-dual-ring"></div>
         </div>
       )}
-      <div className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
-        {countries.map((country) =>
-          query.length === 0 ? (
-            <Link
-              key={country.numericCode}
-              to={{
-                pathname: "/Frontend-Challenge-14/details",
-                state: {
-                  country: country,
-                },
-              }}
-            >
-              <Card
-                imgUri={country.flag}
-                capital={country.capital}
-                name={country.name}
-                population={country.population}
-                region={country.region}
-              />
-            </Link>
-          ) : (
-            country.name.includes(query) && (
+      {!loading && (
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="sm:mt-8 mt-4 sm:mx-8 mx-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16"
+        >
+          {countries.map((country) =>
+            query.length === 0 ? (
               <Link
                 key={country.numericCode}
                 to={{
@@ -171,10 +202,30 @@ function Body() {
                   region={country.region}
                 />
               </Link>
+            ) : (
+              country.name.includes(query) && (
+                <Link
+                  key={country.numericCode}
+                  to={{
+                    pathname: "/Frontend-Challenge-14/details",
+                    state: {
+                      country: country,
+                    },
+                  }}
+                >
+                  <Card
+                    imgUri={country.flag}
+                    capital={country.capital}
+                    name={country.name}
+                    population={country.population}
+                    region={country.region}
+                  />
+                </Link>
+              )
             )
-          )
-        )}
-      </div>
+          )}
+        </motion.div>
+      )}
     </>
   );
 }
